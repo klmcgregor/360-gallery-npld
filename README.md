@@ -3,7 +3,7 @@
 
 Based on the [A-Frame 360 Image Gallery](https://aframe.io/examples/showcase/360-image-gallery/) example project.
 
-[Live version](http://labs.klmcgregor.com/360-gallery-npld/)
+[Live version](http://labs.brontosaurusgames.com/360-gallery-npld/)
 
 ## Build and run locally
 
