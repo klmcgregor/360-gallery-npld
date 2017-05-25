@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>360 Gallery - NPLD</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="360 Gallery for work-in-progress Ansel 360 screenshots of No Place Like Dome">
+    <script src="js/components/aframe-master.js"></script>
+    <script src="js/components/set-image.js"></script>
+    <script src="js/components/aframe-animation-component.js"></script>
+    <script src="js/components/aframe-event-set-component.min.js"></script>
+    <script src="js/components/aframe-layout-component.min.js"></script>
+    <script src="js/components/aframe-template-component.min.js"></script>
+  </head>
+  <body>
+    <div style="height: 100%; width: 100%">
+      <a-scene>
+        <a-assets>
+          <img id="NPLDMars" alt="NPLDMars" src="img/NPLD-360-2017.05.19-04.55.09.31.jpg" />
+          <img id="NPLDSnowyMountain" alt="NPLDSnowyMountain" src="img/NPLD-360-2017.05.19-04.56.49.64.jpg" />
+          <img id="NPLDBathroom" alt="NPLDBathroom" src="img/NPLD-360-2017.05.19-04.57.18.50.jpg" />
+          <img id="NPLDSnowyMountain2" alt="NPLDSnowyMountain2" src="img/NPLD-360-2017.05.19-10.38.00.57-Raw.jpg" />
+          <img id="NPLDMesa" alt="NPLDMesa" src="img/NPLD-360-2017.05.19-10.40.00.40-Raw.jpg" />
+          <img id="NPLDMesa2" alt="NPLDMesa2" src="img/NPLD-360-2017.05.19-10.43.26.89-Raw.jpg" />
+          <img id="NPLDGrassyMountain" alt="NPLDGrassyMountain" src="img/NPLD-360-2017.05.19-10.49.37.86.jpg" />
+          <img id="NPLDKitchen" alt="NPLDKitchen" src="img/NPLD-360-2017.05.19-10.51.58.23.jpg" />
+          <img id="NPLDDesert" alt="NPLDDesert" src="img/NPLD-360-2017.05.19-10.54.35.07.jpg" />
+          <audio id="click-sound" src="audio/click.ogg"></audio>
+
+          <!-- Image link template to be reused. -->
+          <script id="link" type="text/html">
+            <a-entity class="link"
+              geometry="primitive: plane; height: 0.25; width: 0.25"
+              material="shader: flat; color: ${color}"
+              event-set__1="_event: mousedown; scale: 1 1 1"
+              event-set__2="_event: mouseup; scale: 1.2 1.2 1"
+              event-set__3="_event: mouseenter; scale: 1.2 1.2 1"
+              event-set__4="_event: mouseleave; scale: 1 1 1"
+              set-image="on: click; target: #image-360; src: ${src}"
+              sound="on: click; src: #click-sound"></a-entity>
+          </script>
+        </a-assets>
+        
+        <!-- 360-degree image. -->
+        <a-sky id="image-360" rotation="0 -90 0" src="#NPLDMars"></a-sky>
+        
+        <!-- Image links. -->
+        <a-entity id="links" layout="type: line; margin: 0.5" position="-2.2 -2 1" rotation="-90 0 0">
+          <a-entity template="src: #link" data-src="#NPLDMars" data-color="red"></a-entity>
+          <a-entity template="src: #link" data-src="#NPLDSnowyMountain" data-color="white"></a-entity>
+          <a-entity template="src: #link" data-src="#NPLDBathroom" data-color="black"></a-entity>
+          <a-entity template="src: #link" data-src="#NPLDSnowyMountain2" data-color="yellow"></a-entity>
+          <a-entity template="src: #link" data-src="#NPLDMesa" data-color="brown"></a-entity>
+          <a-entity template="src: #link" data-src="#NPLDMesa2" data-color="orange"></a-entity>
+          <a-entity template="src: #link" data-src="#NPLDGrassyMountain" data-color="green"></a-entity>
+          <a-entity template="src: #link" data-src="#NPLDKitchen" data-color="purple"></a-entity>
+          <a-entity template="src: #link" data-src="#NPLDDesert" data-color="brown"></a-entity>
+        </a-entity>
+
+        <a-entity camera look-controls>
+          <a-cursor id="cursor"
+            animation__click="property: scale; startEvents: click; from: 0.1 0.1 0.1; to: 1 1 1; dur: 150"
+            animation__fusing="property: fusing; startEvents: fusing; from: 1 1 1; to: 0.1 0.1 0.1; dur: 1500"
+            event-set__1="_event: mouseenter; color: springgreen"
+            event-set__2="_event: mouseleave; color: black"
+            fuse="true"
+            raycaster="objects: .link"/>
+          </a-cursor>
+        </a-entity>
+      </a-scene>
+    </div>
+  </body>
+</html>
