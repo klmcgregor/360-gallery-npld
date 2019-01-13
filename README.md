@@ -1,5 +1,5 @@
 # 360 Gallery NPLD
-360 image gallery built in [A-Frame VR](https://aframe.io/) showcasing work-in-progress [Ansel 360](http://www.geforce.com/hardware/technology/ansel) images of No Place Like Dome which is being developed in [Unreal Engine 4](https://www.unrealengine.com/)./
+360 image gallery built in [A-Frame VR](https://aframe.io/) showcasing work-in-progress [Ansel 360](http://www.geforce.com/hardware/technology/ansel) images of No Place Like Dome which is being developed in [Unreal Engine 4](https://www.unrealengine.com/).
 
 Based on the [A-Frame 360 Image Gallery](https://aframe.io/examples/showcase/360-image-gallery/) example project.
 
